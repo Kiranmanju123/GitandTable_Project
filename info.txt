@@ -1,0 +1,12 @@
+1. GitHub Project
+
+->install angular cli
+->do npm install for all package to install
+->to run the project command is ng serve
+->Route to access github project is http://localhost:4200/auth
+
+2.UI Table Component
+
+-> install npm install -g json-server
+-> to get the data just run json-server --watch data.json it will serve data
+->Route to access Tableproject is http://localhost:4200/table
