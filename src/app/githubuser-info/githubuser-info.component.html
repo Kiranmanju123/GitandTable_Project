@@ -1,0 +1,30 @@
+<!-- <p>{{name}}</p>
+<p>{{location}}</p> -->
+<div class="container mt-4">
+    <div class="text-right">
+        <button (click)="logout()" class="btn btn-primary">Logout</button>
+    </div>
+</div>
+
+<h4 class="text-center mt-4"><b>User Info:</b></h4>
+<div class="container mt-4 vv1 p-4" style="display: flex; justify-content: space-between;">
+    <div><p><b>Name:</b> {{name}}</p></div>
+    <div><p><b>Location:</b> {{location}}</p></div>
+    <div> <img src={{avatar}} width=50 height=50/> </div>
+</div>
+<h4 class="text-center mt-4"><b>User Repos Info:</b></h4>
+<div class="container border mt-4" style="border-radius: 10px  !important">
+    
+    <div *ngFor="let repo of repos"  class="card mt-4 vv1 p-4">
+        <div class="card-header">
+          {{repo.name  | uppercase}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"> Repo Title: {{repo.name | uppercase }}</h5>
+          <p class="card-text">Created At: {{repo.created_at | date}}</p>
+          <p class="card-text">Description: {{repo.description}}</p>
+          <a target="_blank" href={{repo.svn_url}} class="btn btn-primary">Open Repository</a>
+        </div>
+    </div>
+</div>
+

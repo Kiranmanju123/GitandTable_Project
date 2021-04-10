@@ -1,0 +1,56 @@
+{
+"Users": 
+[
+    {
+        "id": 1,
+        "name": "Kiran",
+        "screen_name": "Home",
+        "followers_count": "500",
+        "following_count": "0",
+        "location": "Karnataka",
+        "verified":"true"
+        },
+    
+        {
+        "id": 2,
+        "name": "Kavya",
+        "screen_name": "Lock",
+        "followers_count": "300",
+        "following_count": "100",
+        "location": "Karnataka",
+        "verified":"false"
+        },
+    
+        {
+        "id": 3,
+        "name": "Inchara",
+        "screen_name": "Menu",
+        "followers_count": "5000",
+        "following_count": "1",
+        "location": "TamilNadu",
+        "verified":"true"
+        },
+    
+        {
+        "id": 4,
+        "name": "BhanuShree",
+        "screen_name": "None",
+        "followers_count": "600",
+        "following_count": "10",
+        "location": "Chennai",
+        "verified":"false"
+        },
+    
+        {
+        "id": 5,
+        "name": "Others",
+        "screen_name": "List",
+        "followers_count": "100",
+        "following_count": "12",
+        "location": "Other",
+        "verified":"false"
+        }
+    
+]
+
+}
