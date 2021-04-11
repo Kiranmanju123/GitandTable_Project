@@ -4,35 +4,43 @@ import { Router } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-githubuser-info',
   templateUrl: './githubuser-info.component.html',
   styleUrls: ['./githubuser-info.component.css']
 })
 export class GithubuserInfoComponent implements OnInit {
-  username;name;location;repos;avatar
+  language="javascript"
+  sort="stars"
+  order="desc"
+  per_page="10"
+  trendingRepos;
+
   
 
   constructor(private auth:AuthServiceService,private router: Router) { }
 
   ngOnInit(): void {
-    this.username=localStorage.getItem("username")
-    this.auth.getDataByUsername(this.username).subscribe((data) => {
-      this.name = data['name']
-      this.location = data['location']
-      this.avatar = data['avatar_url']
+  
+    this.auth.getTrendingRepos(this.language,this.sort,this.order,this.per_page).subscribe((data) => {
+      this.trendingRepos = data['items']
     })
 
-    this.auth.getReposByUsername(this.username).subscribe((data) => {
-      this.repos = data
-    })
-    
+  }
 
+  search() {
+   
+    var value=(<HTMLInputElement>(document.getElementById('lang'))).value;
+    this.language = value
+    this.auth.getTrendingRepos(this.language,this.sort,this.order,this.per_page).subscribe((data) => {
+      // this.loading=false
+      this.trendingRepos = data['items']
+    })
   }
 
   logout() {
-    localStorage.setItem("username","")
     this.router.navigate(['/auth']);
   }
-
+  
 }

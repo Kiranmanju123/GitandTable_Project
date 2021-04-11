@@ -17,16 +17,24 @@ export class AuthComponent implements OnInit {
 
   }
 
-  getUsername(){
-    var username=(<HTMLInputElement>(document.getElementById('username'))).value;
-    if(username.length<=0) {
-     alert("Pleas Enter Your Username")
-    }
-    this.auth.getDataByUsername(username).subscribe((data) => {
-      this.usernameofuser = data['login']
-      localStorage.setItem("username",this.usernameofuser)
-      this.router.navigate(['/me']);
-    })
+  // getUsername(){
+  //   var username=(<HTMLInputElement>(document.getElementById('username'))).value;
+  //   if(username.length<=0) {
+  //    alert("Pleas Enter Your Username")
+  //   }
+  //   this.auth.getDataByUsername(username).subscribe((data) => {
+  //     this.usernameofuser = data['login']
+  //     localStorage.setItem("username",this.usernameofuser)
+  //     this.router.navigate(['/me']);
+  //   })
+  // }
+
+  github() {
+    this.auth.loginWithGitHub()
+    // this.router.navigate(['/me']);
   }
 
+  google() {
+    this.auth.loginWithGoogle()
+  }
 }

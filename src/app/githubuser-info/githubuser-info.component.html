@@ -1,29 +1,54 @@
+<div class="container p-4">
+    <div class="row text-center">
+        <div class="col-lg-3 col-md-3 col-12"></div>
+        <div class="col-lg-6 col-md-6 col-12">
+            <label class="color" for="email">Select Language</label>
+            <select style="font-weight: 600;outline: none; box-shadow: none; font-size: 18px;" id="lang" class="form-control inp_fld" (change)="search()">
+                <option value="javascript">Javascript</option> 
+                <option value="java">Java</option>  
+               
+              <option value="python">Python</option>  
+              <option value="c">C</option>  
+              <option value="c++">C++</option>  
+              <option value="ruby">Ruby</option>  
+              <option value="php">PHP</option>  
+              <option value="go">GO</option>  
+            </select>
+
+        </div>
+        <div class="col-lg-3 col-md-3 col-12">
+            <button (click)="logout()" type="button" class="btn btn-primary">Logout</button>
+        </div>
+
+    </div>
+</div>
 <!-- <p>{{name}}</p>
 <p>{{location}}</p> -->
-<div class="container mt-4">
+<!-- <div class="container mt-4">
     <div class="text-right">
         <button (click)="logout()" class="btn btn-primary">Logout</button>
     </div>
-</div>
+</div> -->
 
-<h4 class="text-center mt-4"><b>User Info:</b></h4>
-<div class="container mt-4 vv1 p-4" style="display: flex; justify-content: space-between;">
+<!-- <h4 class="text-center mt-4"><b>User Info:</b></h4> -->
+<!-- <div class="container mt-4 vv1 p-4" style="display: flex; justify-content: space-between;">
     <div><p><b>Name:</b> {{name}}</p></div>
     <div><p><b>Location:</b> {{location}}</p></div>
     <div> <img src={{avatar}} width=50 height=50/> </div>
-</div>
-<h4 class="text-center mt-4"><b>User Repos Info:</b></h4>
+</div> -->
+<h4 class="text-center mt-4"><b>Trending 10 Repos of {{language}}:</b></h4>
+
 <div class="container border mt-4" style="border-radius: 10px  !important">
     
-    <div *ngFor="let repo of repos"  class="card mt-4 vv1 p-4">
-        <div class="card-header">
-          {{repo.name  | uppercase}}
+    <div *ngFor="let repo of trendingRepos"  class="card mt-4 vv1 p-4">
+        <div class="card-header" style="font-size: 18px;">
+          <b>{{repo.name  | uppercase}}</b>
         </div>
         <div class="card-body">
-          <h5 class="card-title"> Repo Title: {{repo.name | uppercase }}</h5>
-          <p class="card-text">Created At: {{repo.created_at | date}}</p>
-          <p class="card-text">Description: {{repo.description}}</p>
-          <a target="_blank" href={{repo.svn_url}} class="btn btn-primary">Open Repository</a>
+          <h5 class="card-title"> <b style="font-size:18px">Repo Title:</b> <span class="pl-3" style="font-size: 15px;">{{repo.name | uppercase }}</span></h5>
+          <p class="card-text"> <b style="font-size:18px">Owner Name:</b><span class="pl-2" style="font-size: 15px;">{{repo["owner"].login}}</span></p>
+          <!-- <div> <img src={{repo[login].avatar_url}} width=50 height=50/> </div> -->
+          <!-- <a target="_blank" href={{repo.svn_url}} class="btn btn-primary">View Github Account</a>  -->
         </div>
     </div>
 </div>

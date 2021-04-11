@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthServiceService } from './services/auth-service.service';
+
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'github-project';
+constructor(private auth:AuthServiceService) {}
+
+// google() {
+//     this.auth.loginWithGoogle()
+//   }
+
+
+  github() {
+    this.auth.loginWithGitHub()
+  }
 }
